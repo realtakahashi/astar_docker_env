@@ -26,6 +26,9 @@ RUN rustup target add wasm32-unknown-unknown --toolchain nightly
 RUN rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
 RUN rm ./rustup.sh
 
+RUN echo "[net]" > /home/developer/.cargo/config.toml
+RUN echo "git-fetch-with-cli = true" >> /home/developer/.cargo/config.toml
+
 # install cargo-contract
 RUN rustup component add rust-src
 RUN rustup target add wasm32-unknown-unknown --toolchain nightly
