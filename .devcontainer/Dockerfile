@@ -24,6 +24,9 @@ RUN rustup update
 RUN rustup update nightly
 RUN rustup target add wasm32-unknown-unknown --toolchain nightly
 RUN rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
+RUN rustup install nightly-2023-02-07-unknown-linux-gnu
+RUN rustup component add rust-src --toolchain nightly-2023-02-07-x86_64-unknown-linux-gnu
+RUN rustup default nightly-2023-02-07
 RUN rm ./rustup.sh
 
 RUN echo "[net]" > /home/developer/.cargo/config.toml
@@ -33,7 +36,8 @@ RUN echo "git-fetch-with-cli = true" >> /home/developer/.cargo/config.toml
 RUN rustup component add rust-src
 RUN rustup target add wasm32-unknown-unknown --toolchain nightly
 RUN rustup component add rust-src
-RUN cargo install --force --locked cargo-contract --version 2.0.0-rc
+RUN cargo install --force --locked cargo-contract --version 2.1.0
+# RUN cargo install --force --locked cargo-contract
 
 # install node & npm
 RUN sudo apt install -y nodejs npm
