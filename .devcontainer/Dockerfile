@@ -58,3 +58,8 @@ RUN git config --global user.email developer@dev.com
 # install swanky
 RUN sudo npm install -y -g @astar-network/swanky-cli
 
+# clone substrate-node-template
+RUN git clone https://github.com/substrate-developer-hub/substrate-node-template
+
+# clone substrate-frontend-template
+RUN git clone https://github.com/substrate-developer-hub/substrate-front-end-template
